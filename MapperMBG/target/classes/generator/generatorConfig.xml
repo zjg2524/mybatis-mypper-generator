@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="application-dev.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+		<!-- generator.MapperPlugin插件  -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+        	<!-- value 生成mapper需要继承的基类 -->
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+		<!-- 生成实体类存放的位置   targetProject:项目原有的目录-->
+        <javaModelGenerator targetPackage="com.xiaofeng.pojo" targetProject="src/main/java"/>
+		<!-- mapper对应的xml文件存放的地方 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+		<!--mapper接口存放的地方  -->
+        <javaClientGenerator targetPackage="com.xiaofeng.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+		<!-- 根据数据库表生成java文件相关的规则  -->
+        <table tableName="user_info" domainObjectName="User">
+            <!--mysql 配置-->
+            <generatedKey column="sid" sqlStatement="Mysql" identity="true"/>
+            <!--oracle 配置-->
+            <!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from dual" identity="false" type="pre"/>-->
+        </table>
+    </context>
+</generatorConfiguration>
