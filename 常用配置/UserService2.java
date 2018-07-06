@@ -17,7 +17,7 @@ public class UserService2 {
 	@Autowired
 	UserMapper2 userMapper2;
 	
-	public User selectUser(int sid)
+	public User selectUser(int s2id)
 	{
 		return userMapper2.selectUserOneById(sid);
 	}
