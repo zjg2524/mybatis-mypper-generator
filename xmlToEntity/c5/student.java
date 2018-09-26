@@ -5,10 +5,9 @@ class Student{
 	
 
 	private String sname="abc";
+	99;
 	
-	private int age =18;
-	
-	private String desc = "xiaoabc";
+	private String desc = "xyz";
 
 	
 	
