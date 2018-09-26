@@ -3,11 +3,11 @@ package a.b.c;
 
 class Student{
 	
-	private String sname="xiaoming";
+	private String sname="huahua";
 	
 	private int age =18;
 	
-	private String desc = "xiaoxiaoming";
+	private String desc = "xiaoxiaohua";
 	
 	
 	
