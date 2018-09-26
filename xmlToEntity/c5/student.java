@@ -6,9 +6,9 @@ class Student{
 
 	private String sname="abc";
 	
-	private int age =18;
+	private int age =28;
 	
-	private String desc = "xiaoabc";
+	private String desc = "qaz";
 
 	
 	
