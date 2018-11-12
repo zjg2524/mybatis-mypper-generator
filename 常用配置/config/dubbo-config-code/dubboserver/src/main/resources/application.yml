@@ -1,0 +1,18 @@
+#server.port=8081
+#dubbo.application.name=dubboDemo01_consumer
+#dubbo.registry.address=zookeeper://10.134.162.17:2181
+#dubbo.monitor.protocol=registry
+
+server:
+  port: 8081
+
+dubbo:
+  protocol:
+    name: dubbo
+    port: -1
+    
+  registry:
+    address: zookeeper://10.134.162.17:2181
+    
+  application:
+    name: dubboDemo01_consumer

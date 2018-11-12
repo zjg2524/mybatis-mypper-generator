@@ -28,9 +28,10 @@
         <javaClientGenerator targetPackage="com.xiaofeng.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 		<!-- 根据数据库表生成java文件相关的规则  -->
-        <table tableName="user_info" domainObjectName="User">
+		
+        <table tableName="smart_device" domainObjectName="device">
             <!--mysql 配置-->
-            <generatedKey column="sid" sqlStatement="Mysql" identity="true"/>
+            <generatedKey column="device_id" sqlStatement="Mysql" identity="true"/>
             <!--oracle 配置-->
             <!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from dual" identity="false" type="pre"/>-->
         </table>
