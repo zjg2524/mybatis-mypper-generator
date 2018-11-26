@@ -1,6 +1,6 @@
 package com.jmeter.demo.dao;
 
-import com.jmeter.demo.entity.User;
+import com.jmeter.demo.entity.Users;
 import tk.mybatis.mapper.common.BaseMapper;
 
 /**
@@ -8,5 +8,5 @@ import tk.mybatis.mapper.common.BaseMapper;
  * Administrator
  * com.jmeter.demo.dao
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface UserMapper extends BaseMapper<Users> {
 }

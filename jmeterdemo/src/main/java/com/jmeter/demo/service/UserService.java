@@ -1,7 +1,7 @@
 package com.jmeter.demo.service;
 
 import com.jmeter.demo.dao.UserMapper;
-import com.jmeter.demo.entity.User;
+import com.jmeter.demo.entity.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +19,9 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
-    public  List<User> getUserById()
+    public  List<Users> getUserById()
     {
-        List<User> users = userMapper.selectAll();
+        List<Users> users = userMapper.selectAll();
         return users;
     }
 }

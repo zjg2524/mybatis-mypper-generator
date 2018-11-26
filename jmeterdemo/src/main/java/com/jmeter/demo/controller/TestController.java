@@ -1,6 +1,6 @@
 package com.jmeter.demo.controller;
 
-import com.jmeter.demo.entity.User;
+import com.jmeter.demo.entity.Users;
 import com.jmeter.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +18,11 @@ import java.util.List;
 @RequestMapping("/jmeter")
 public class TestController {
 
-    @Autowired
+    @Autowired(required = false)
     UserService userService;
 
     @GetMapping("/users")
-    public List <User> queryUserAll()
+    public List <Users> queryUserAll()
     {
         return userService.getUserById();
     }
