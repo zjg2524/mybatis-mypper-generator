@@ -1,0 +1,11 @@
+-Xms20M -Xmx20M -Xmn10m 
+-XX:+UseSerialGC  
+-XX:+PrintGC
+-XX:+PrintGCDetails 
+-XX:+PrintGCTimeStamps 
+-XX:PretenureSizeThreshold=3000000  
+-Xloggc:D:/gc.log  
+-XX:+HeapDumpOnOutOfMemoryError   
+-XX:HeapDumpPath=d:/test.hprof gc.SerialGCDemo
+
+ 
