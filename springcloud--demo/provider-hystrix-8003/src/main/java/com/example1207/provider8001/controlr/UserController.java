@@ -36,11 +36,11 @@ public class UserController {
     {
         Optional<User> byId = userJpa.findById(id);
         User user = byId.get();
-        try {
-            TimeUnit.SECONDS.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(2);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 //        user.setSid(8003);
         if(user == null){
             System.out.println("enter exception........");

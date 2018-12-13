@@ -39,4 +39,18 @@ hystrix:
         thread:
           timeoutInMilliseconds: 30000
 
+# hystrix-dashboard
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+      health:
+        show-details: ALWAYS
