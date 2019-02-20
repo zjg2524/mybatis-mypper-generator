@@ -1,0 +1,2 @@
+redis-benchmark -c 100 -n 10000测试命令事例：1、redis-benchmark -h 192.168.42.111 -p 6379 -c 100 -n 100000 100个并发连接，100000个请求，检测host为localhost 端口为6379的redis服务器性能 
+2、redis-benchmark -h 192.168.42.111 -p 6379 -q -d 100  测试存取大小为100字节的数据包的性能3、redis-benchmark -t set,lpush -n 100000 -q只测试 set,lpush操作的性能4、redis-benchmark -n 100000 -q script load "redis.call('set','foo','bar')"只测试某些数值存取的性能
