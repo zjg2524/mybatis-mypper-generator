@@ -1,0 +1,489 @@
+## 1、获取品牌列表
+#### url:/web/adm/brand/getBrandList/v1
+#### method:get
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| pageSize | int | 每页的条数 |
+| currentPage | int | 当前页       |
+| name | String | 品牌名称       |
+### <font color="red"> 特别注意</font>
+
+<font color="green">不传name参数，或者name参数为空时，查询分页所有品牌的数据</font><br>
+<font color="green">传name参数，根据品牌名称查询品牌信息</font>
+
+#### return:
+```javascript
+{
+	"code": 1,
+	"msg": "success",
+	"useMsg": "请求成功",
+	"data": [{
+		"id": 100,
+		"info": "苹果公司（Apple Inc.）是美国的一家高科技公司，2007年由苹果电脑公司（Apple Computer, Inc.）更名而来，核心业务为电子科技产品，总部位于加利福尼亚州的库比蒂诺。苹果公司由史蒂夫·乔布斯、斯蒂夫·沃兹尼亚克和罗纳德·韦恩在1976年4月1日创立，在高科技企业中以创新而闻名，知名的产品有Apple II、Macintosh电脑、Macbook笔记本电脑、iPod音乐播放器、iTunes商店、iMac一体机、iPhone手机和iPad平板电脑等。由苹果公司推出的iPhone智能手机系列，搭载苹果公司所研发的iOS（原称“iPhone OS”）手机操作系统。其深受广大消费者喜爱，销量也遥遥领先。",
+		"name": "苹果（Apple）",
+		"picforapp": "20160705151418_7568.jpg",
+		"rank_": 0,
+		"seoKey": "apple",
+		"tel": "400-666-8800",
+		"url": "/pic/brand/20170519185532_7641.jpg",
+		"webSite": "wwww.apple.com"
+	}, {
+		"id": 100,
+		"info": "苹果公司（Apple Inc.）是美国的一家高科技公司，2007年由苹果电脑公司（Apple Computer, Inc.）更名而来，核心业务为电子科技产品，总部位于加利福尼亚州的库比蒂诺。苹果公司由史蒂夫·乔布斯、斯蒂夫·沃兹尼亚克和罗纳德·韦恩在1976年4月1日创立，在高科技企业中以创新而闻名，知名的产品有Apple II、Macintosh电脑、Macbook笔记本电脑、iPod音乐播放器、iTunes商店、iMac一体机、iPhone手机和iPad平板电脑等。由苹果公司推出的iPhone智能手机系列，搭载苹果公司所研发的iOS（原称“iPhone OS”）手机操作系统。其深受广大消费者喜爱，销量也遥遥领先。",
+		"name": "苹果（Apple）",
+		"picforapp": "20160705151418_7568.jpg",
+		"rank_": 0,
+		"seoKey": "apple",
+		"tel": "400-666-8800",
+		"url": "/pic/brand/20170519185532_7641.jpg",
+		"webSite": "wwww.apple.com"
+	}]
+}
+```
+
+
+
+## 2、添加品牌
+#### url:/web/adm/brand/insert/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| name | String | 品牌名称 |
+| seoKey | String |seoKey |
+| shortName | String | 短名字 |
+| picName | String | 图片名称 |
+| picForAppName | String | 图片名称(用于app分类) |
+| rank | String | 排序) |
+| category | int | 类型 |
+| info | String | 品牌简介 |
+| webSite | String | 品牌官网 |
+| tel | String | 品牌官网售后服务热线 |
+| productSortValue | int | 商品排序权重 |
+
+
+#### return:
+```javascript
+{
+  "code": 0,
+  "msg": "SuccessMsg",
+  "userMsg": "插入成功",
+}
+```
+
+## 3、更新品牌信息
+#### url:/web/adm/brand/update/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | int | 品牌ID |
+| name | String | 品牌名称 |
+| seoKey | String |seoKey |
+| pic | String | 图片 |
+| picforapp | String | 图片(用于app分类) |
+| rank | int | 排序) |
+| info | String | 品牌简介 |
+| webSite | String | 品牌官网 |
+| tel | String | 品牌官网售后服务热线 |
+
+
+
+#### return:
+```javascript
+{
+  "code": 0,
+  "msg": "SuccessMsg",
+  "userMsg": "更新成功",
+}
+```
+
+## 4、获取商品的所有分类
+#### url:/web/adm/brand/getCategorys/v1
+#### method:get
+
+#### return:
+```javascript
+{
+	"code": 1,
+	"msg": "success",
+	"useMsg": "请求成功",
+	"data": [{
+		"id": 100,
+		"name": "手机"
+	}, {
+		"id": 50,
+		"name": "中国电信"
+	}]
+}
+```
+
+## 5、删除模板
+#### url:/web/adm/topicPagemanage/deleteTopic/v1/{id}
+#### method:delete
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | Number | 模板id |
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "删除成功",
+    "data": {}
+}
+```
+
+## 6、克隆模板
+#### url:/web/adm/topicPagemanage/cloneTopic/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | Number | 模板id |
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "克隆模板成功",
+    "data": {}
+}
+```
+
+## 7、新增/编辑模板基本信息
+#### url:/web/adm/topicPagemanage/addBaseInfo/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | Number | 模板id，0则新增，不为0则编辑 |
+| title | string | 模板标题 |
+| description | string | 模板SEO描述 |
+| keyword | string | 模板SEO关键字 |
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "保存成功",
+    'data': null
+}
+```
+
+## 8、锁定模板:
+#### url:/web/adm/topicPagemanage/lockTopic/v1
+#### method:get
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | String | 模板id |
+| platform | String | m/pc |
+
+#### return:
+```javascript
+{
+  code: 0,
+  msg: 'success',
+  userMsg: '请求成功',
+  'data': {
+    'status': 0, // 0为锁定成功，1为已被其他人锁住
+    'number': '' // 被其他人锁定时，此处返回锁定人工号
+  }
+}
+```
+
+## 9、保存专题活动模板数据
+#### url:/web/adm/topicPagemanage/saveTopic/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | String | 模板id |
+| platform | String | m/pc |
+| topicData | String | 序列化后的模板数据 |
+| customCode | String | 自定义代码 |
+
+#### return:
+```javascript
+{
+  code: 0,
+  msg: 'success',
+  userMsg: '请求成功',
+  'data': {}
+}
+```
+
+## 10、获取组件数据
+#### url:/web/adm/topicPagemanage/getComponentData/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| topicId | String | 专题id |
+| ppids | String | 普通商品id，英文逗号连接 |
+| qids | String | 抢购商品id，英文逗号连接 |
+| teamIds | String | 团购商品id，英文逗号连接 |
+| integralIds | String | 积分商品id，英文逗号连接 |
+| groupIds | String | 组合购商品id，英文逗号连接 |
+| nids | String | 弹幕内容对应的九机资讯id |
+| circlr | String | 需要展示3D图的商品ppid，多个用英文逗号连接 |
+| batch | String | 奖池id,获取某个奖池下的所有奖品，多个用英文逗号连接 |
+| bargainId | String | 一手优品id，多个用英文逗号连接 |
+| secondhandId | String | 良品id，多个用英文逗号连接 |
+| recoverId | String | 回收id，多个用英文逗号连接 |
+| rentId | String | 租机id，多个用英文逗号连接 |
+
+#### return:
+```javascript
+{
+  "code": 0,
+  "msg": "SuccessMsg",
+  "userMsg": "请求成功",
+  "data": {
+    "product": [ // 普通商品
+      {
+        "ppid": 43920, // 普通商品id
+        "name": "iPhone 7（A1660）国行版 黑色 128GB ", // 商品名称
+        "description": "【火热销售】IP67防水防尘；后置1200万镜头，光学防抖，全新A10处理器！", // 商品描述
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20170421142609609.jpg", // 商品图片
+        "price": "5560.00", // 商品价格
+        "originalprice": "6188.00", // 商品原价
+        "sellingPoint": "防水防尘 光学防抖" // 卖点
+      }
+    ],
+    "bargain": [ // 一手优品
+      {
+        "id": 43920, // 优品id
+        "name": "iPhone 7（A1660）国行版 黑色 128GB ", // 商品名称
+        "description": "【火热销售】IP67防水防尘；后置1200万镜头，光学防抖，全新A10处理器！", // 商品描述
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20170421142609609.jpg", // 商品图片
+        "price": "5560.00", // 商品价格
+        "originalprice": "6188.00", // 商品原价
+        "sellingPoint": "防水防尘 光学防抖", // 卖点
+        "onSale": true // 为false时显示已售
+      }
+    ],
+    "secondhand": [ // 二手良品
+      {
+        "id": 43920, // 良品id
+        "name": "iPhone 7（A1660）国行版 黑色 128GB ", // 商品名称
+        "description": "【火热销售】IP67防水防尘；后置1200万镜头，光学防抖，全新A10处理器！", // 商品描述
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20170421142609609.jpg", // 商品图片
+        "price": "5560.00", // 商品价格
+        "originalprice": "6188.00", // 商品原价
+        "sellingPoint": "防水防尘 光学防抖", // 卖点
+        "onSale": true, // 为false时显示已售
+        "gLevel": "8成新"
+      }
+    ],
+    "rush": [ // 抢购商品
+      {
+        "id": 16630, // 抢购商品id
+        "startTime": -786625.0, // 开始时间
+        "endTime": 629090.0, // 结束时间
+        "name": "锐思 速腾系列 Lightning接口 iPhone快充数据线 苹果5s/6s/7  线长1.2米 红色 ", // 商品名称
+        "imagePath": "//img2.ch999img.com//pic/product/440x440/20170828132727857.jpg", // 商品图片
+        "price": "19.00", // 商品价格
+        "originalprice": "29.00", // 原价
+        "totalCount": 25, // 总数
+        "surplus": 9, // 剩余件数
+        "appoint": 0, // 1-预约抢购 0-去抢购
+        "sellingPoint": "超粗线身 结实耐用" // 卖点
+      }
+    ],
+    "integral": [ // 积分购
+      {
+        "id": 2552, // 积分商品id
+        "name": "珂玛 iPhone 6/6s 复合材质 皮质保护壳", // 商品名称
+        "description": "", // 商品描述
+        "imagePath": "//img2.ch999img.com/pic/product/216x216/20170831164953293.jpg", // 商品图片
+        "price": 0.00, // 价格
+        "integral": 4900, // 所需积分
+        "sellingPoint": "拼接设计 全包防摔" // 商品卖点
+      }
+    ],
+    "team": [ // 团购
+      {
+        "id": 959, // 团购商品id
+        "ppid": 47211, // ppid
+        "name": "", // 商品名称
+        "description": "九机独家定制；1年无忧免费换新，坚固耐用！", // 商品描述
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20170908133749843.jpg", // 商品图片
+        "price": "27.00", // 价格
+        "originalprice": "45.00", // 原价
+        "people": 2, // 成团人数
+        "sellingPoint": "九机定制 无忧换新" // 卖点
+      }
+    ],
+    "group": [ // 组合购
+      {
+        "id": 1154,
+        "name": "华为畅享5S全网通", // 组合购名称
+        "price": "100.00", // 组合购价格
+        "originalprice": "113.00", // 原价
+        "product": [ // 组合商品
+          {
+            "ppid": 36843, // ppid
+            "price": "35.00", // 价格
+            "name": "飞尚（ Freeson）华为 畅享5s TPU软壳 透明壳 ", // 商品名称
+            "imagePath": "//img2.ch999img.com/pic/product/440x440/20170905160005315.jpg" // 商品图片
+          }, {
+            "ppid": 38560,
+            "price": "35.00",
+            "name": "摩可（Mocoll） 华为 畅享5s 半屏钢化膜 ",
+            "imagePath": "//img2.ch999img.com/pic/product/440x440/20170907165322365.jpg"
+          }, {
+            "ppid": 27214,
+            "price": "30.00",
+            "name": "华为（HUAWEI）荣耀 耳塞式 线控耳机 白色 ",
+            "imagePath": "//img2.ch999img.com/pic/product/440x440/201709081501453.jpg"
+          }
+        ]
+      }
+    ],
+    "bullet": [{
+      "nid": 123,
+      "list": [{
+        "userName": "13943052345",
+        "avatar": "//img2.ch999img.com/images/usericon.png",
+        "content": "回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容"
+      }, {
+        "userName": "13943052345",
+        "avatar": "//img2.ch999img.com/images/usericon.png",
+        "content": "回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容"
+      }]
+    }, {
+      "nid": 234,
+      "list": [{
+        "userName": "13943052345",
+        "avatar": "//img2.ch999img.com/images/usericon.png",
+        "content": "回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容"
+      }, {
+        "userName": "13943052345",
+        "avatar": "//img2.ch999img.com/images/usericon.png",
+        "content": "回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容回复内容"
+      }]
+    }],
+    "circlr": [{
+      "ppid": 123,
+      "images": [
+        "//img2.ch999img.com/pic/product/opic/170508143711825/1.jpg",
+        "//img2.ch999img.com/pic/product/opic/170508143711825/2.jpg",
+        "//img2.ch999img.com/pic/product/opic/170508143711825/3.jpg"
+      ]
+    }, {
+      "ppid": 234,
+      "images": [
+        "//img2.ch999img.com/pic/product/opic/170508143711825/1.jpg",
+        "//img2.ch999img.com/pic/product/opic/170508143711825/2.jpg",
+        "//img2.ch999img.com/pic/product/opic/170508143711825/3.jpg"
+      ]
+    }],
+    "prize": [{
+      "batch": 123,
+      "list": [{
+        "id": 2489,
+        "prize": "谢谢参与",
+        "type": 1,
+        "imagePath": "//img2.ch999img.com/无"
+      }, {
+        "id": 3259,
+        "prize": "随机积分",
+        "type": 2,
+        "imagePath": "//img2.ch999img.com/pic/zt/201708280536220.png"
+      }]
+    }, {
+      "batch": 234,
+      "list": [{
+        "id": 2489,
+        "prize": "谢谢参与",
+        "type": 1,
+        "imagePath": "//img2.ch999img.com/pic/zt/201708280536220.png"
+      }, {
+        "id": 3259,
+        "prize": "随机积分",
+        "type": 2,
+        "imagePath": "//img2.ch999img.com/pic/zt/201708280536220.png"
+      }]
+    }],
+    "recover": [
+      {
+        "id": 2182,
+        "name": "Apple iPhone 6s",
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20150910052254135.jpg",
+        "price": 1100.0
+      },
+      {
+        "id": 4503,
+        "name": "华为 P20",
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20180328011148853.jpg",
+        "price": 2470.0
+      },
+      {
+        "id": 4716,
+        "name": "Apple iPhone XS Max",
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20180913061104548.jpg",
+        "price": 8050.0
+      },
+      {
+        "id": 4742,
+        "name": "Apple iPhone XR",
+        "imagePath": "//img2.ch999img.com/pic/product/440x440/20180913062839175.jpg",
+        "price": 4850.0
+      }
+    ],
+    "rent": [
+      {
+        "ppid": 71578,
+        "name": "三星 Galaxy A9s  (SM-A9200) 全网通版泡泡粉 6GB+128GB ",
+        "imagePath": "https://img2.ch999img.com/pic/product/440x440/20181024190730831.jpg",
+        "dailyRent": "7.69",
+        "outOfStockFlag": false
+      }
+    ]
+    "now": 1504862109000
+  }
+}
+```
+
+## 12、获取变量值
+#### url:/web/adm/topicPagemanage/getVariables/v1
+#### method:get
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| fields | String | 变量名，多个用英文逗号连接 |
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "请求成功",
+    'data': {// 变量赋值
+      "aaa": "aaa已赋值",
+      "appointCount": "找程序赋值"
+    }
+}
+```
+常用变量：
+新机预约数量：newOrder-[ppid]，如 newOrder-123
+商品预订数据：bookNumber-[ppid]，如 bookNumber-123
+报名人数：enrollment-[topicId]，如 enrollment-123
+商品区域价格：price-[ppid]，如price-20408
