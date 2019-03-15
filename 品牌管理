@@ -1,0 +1,325 @@
+## 1、获取品牌列表
+#### url:/web/adm/brand/getBrandList/v1
+#### method:get
+#### params:
+
+| key | value | description |是否必须|
+| :-: | :---: | :---------: |
+| pageSize | int | 每页的条数 |必须|
+| currentPage | int | 当前页       |必须|
+| name | String | 品牌名称       |可选|
+### <font color="red"> 特别注意：</font>
+
+**<font color="green">不传name参数，或者name参数为空时，查询分页所有品牌的数据</font>**<br>
+**<font color="green">传name参数，根据品牌名称查询品牌信息</font>**
+
+#### return:
+```javascript
+{
+	"code": 1,
+	"msg": "success",
+	"useMsg": "请求成功",
+	"data": [{
+		"id": 100,
+		"info": "苹果公司（Apple Inc.）是美国的一家高科技公司，2007年由苹果电脑公司（Apple Computer, Inc.）更名而来，核心业务为电子科技产品，总部位于加利福尼亚州的库比蒂诺。苹果公司由史蒂夫·乔布斯、斯蒂夫·沃兹尼亚克和罗纳德·韦恩在1976年4月1日创立，在高科技企业中以创新而闻名，知名的产品有Apple II、Macintosh电脑、Macbook笔记本电脑、iPod音乐播放器、iTunes商店、iMac一体机、iPhone手机和iPad平板电脑等。由苹果公司推出的iPhone智能手机系列，搭载苹果公司所研发的iOS（原称“iPhone OS”）手机操作系统。其深受广大消费者喜爱，销量也遥遥领先。",
+		"name": "苹果（Apple）",
+		"picforapp": "20160705151418_7568.jpg",
+		"rank": 0,
+		"seoKey": "apple",
+		"tel": "400-666-8800",
+		"url": "/pic/brand/20170519185532_7641.jpg",
+		"webSite": "wwww.apple.com"
+	}, {
+		"id": 100,
+		"info": "苹果公司（Apple Inc.）是美国的一家高科技公司，2007年由苹果电脑公司（Apple Computer, Inc.）更名而来，核心业务为电子科技产品，总部位于加利福尼亚州的库比蒂诺。苹果公司由史蒂夫·乔布斯、斯蒂夫·沃兹尼亚克和罗纳德·韦恩在1976年4月1日创立，在高科技企业中以创新而闻名，知名的产品有Apple II、Macintosh电脑、Macbook笔记本电脑、iPod音乐播放器、iTunes商店、iMac一体机、iPhone手机和iPad平板电脑等。由苹果公司推出的iPhone智能手机系列，搭载苹果公司所研发的iOS（原称“iPhone OS”）手机操作系统。其深受广大消费者喜爱，销量也遥遥领先。",
+		"name": "苹果（Apple）",
+		"picforapp": "20160705151418_7568.jpg",
+		"rank": 0,
+		"seoKey": "apple",
+		"tel": "400-666-8800",
+		"url": "/pic/brand/20170519185532_7641.jpg",
+		"webSite": "wwww.apple.com"
+	}],
+	"pageInfo": {
+		"currentPage": 1,
+		"totalPage": 30，
+		"totalCount": 560
+	}
+}
+```
+
+
+
+## 2、添加品牌
+#### url:/web/adm/brand/insert/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| name | String | 品牌名称 |
+| seoKey | String |seoKey |
+| shortName | String | 短名字 |
+| picName | String | 图片名称 |
+| picForAppName | String | 图片名称(用于app分类) |
+| rank | String | 排序) |
+| category | int | 类型 |
+| info | String | 品牌简介 |
+| webSite | String | 品牌官网 |
+| tel | String | 品牌官网售后服务热线 |
+| productSortValue | int | 商品排序权重 |
+
+
+#### return:
+```javascript
+{
+  "code": 0,
+  "msg": "SuccessMsg",
+  "userMsg": "插入成功",
+}
+```
+
+## 3、更新品牌信息
+#### url:/web/adm/brand/update/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | int | 品牌ID |
+| name | String | 品牌名称 |
+| seoKey | String |seoKey |
+| pic | String | 图片 |
+| picforapp | String | 图片(用于app分类) |
+| rank | int | 排序) |
+| info | String | 品牌简介 |
+| webSite | String | 品牌官网 |
+| tel | String | 品牌官网售后服务热线 |
+
+
+
+#### return:
+```javascript
+{
+  "code": 0,
+  "msg": "SuccessMsg",
+  "userMsg": "更新成功",
+}
+```
+
+## 4、获取商品的所有分类
+#### url:/web/adm/brand/getCategorys/v1
+#### method:get
+
+#### return:
+```javascript
+{
+	"code": 1,
+	"msg": "success",
+	"useMsg": "请求成功",
+	"data": [{
+		"id": 100,
+		"name": "手机"
+	}, {
+		"id": 50,
+		"name": "中国电信"
+	}]
+}
+```
+
+## 5、分页获取所有的服务网点
+#### url:/web/adm/brand/getAllBrandService/v1/
+#### method:get
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| pageSize | int | 每页的条数 |
+| currentPage | int | 当前页       |
+
+
+
+#### return:
+```javascript
+{
+	"code": 1,
+	"msg": "success",
+	"useMsg": "请求成功",
+	"data": [{
+		"id": 411,
+		"region": "云南省-昆明市-五华区",
+		"brand": "360手机",
+		"name": "昆明永星通信设备有限公司",
+		"address": "云南省昆明市东风西路241号百汇商业广场二楼A区A9商铺",
+		"phone": "0871-65307866",
+		"work": "09:00－18:00",
+		"position": "102.703401,25.052535"
+	}, {
+		"id": 411,
+		"region": "云南省-昆明市-五华区",
+		"brand": "360手机",
+		"name": "昆明永星通信设备有限公司",
+		"address": "云南省昆明市东风西路241号百汇商业广场二楼A区A9商铺",
+		"phone": "0871-65307866",
+		"work": "09:00－18:00",
+		"position": "102.703401,25.052535"
+	}],
+	"pageInfo": {
+		"currentPage": 1,
+		"totalPage": 30
+	}
+}
+```
+
+## 6、带条件(区域和品牌)获取服务网点
+#### url:/web/adm/brand/getBrandServiceByCondition/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| pid | int | 省分ID |
+| zid | int | 城市ID |
+| did | int | 区域ID |
+| brandId | String | 品牌ID|
+
+#### return:
+```javascript
+{
+	"code": 1,
+	"msg": "success",
+	"useMsg": "请求成功",
+	"data": [{
+		"id": 411,
+		"region": "云南省-昆明市-五华区",
+		"brand": "360手机",
+		"name": "昆明永星通信设备有限公司",
+		"address": "云南省昆明市东风西路241号百汇商业广场二楼A区A9商铺",
+		"phone": "0871-65307866",
+		"work": "09:00－18:00",
+		"position": "102.703401,25.052535"
+	}, {
+		"id": 411,
+		"region": "云南省-昆明市-五华区",
+		"brand": "360手机",
+		"name": "昆明永星通信设备有限公司",
+		"address": "云南省昆明市东风西路241号百汇商业广场二楼A区A9商铺",
+		"phone": "0871-65307866",
+		"work": "09:00－18:00",
+		"position": "102.703401,25.052535"
+	}]
+}
+```
+
+## 7、新增服务网点
+#### url:/web/adm/brand/insetBrandService/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| name | string | 网点名称 |
+| brand | string | 品牌 |
+| address | string | 地址 |
+| pid | int | 省分ID |
+| zid | int | 城市ID |
+| did | int | 区域ID |
+| phone | string | 电话 |
+| position | string | 地图表示 |
+| work | string | 工作时间 |
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "保存成功",
+    'data': null
+}
+```
+## 8、批量新增服务网点
+#### url:/web/adm/brand/batchInsetBrandService/v1
+#### method:post
+#### params:（采用json的格式）
+
+```javascript
+[{
+	"id": 411,
+	"region": "云南省-昆明市-五华区",
+	"brand": "360手机",
+	"name": "昆明永星通信设备有限公司",
+	"address": "云南省昆明市东风西路241号百汇商业广场二楼A区A9商铺",
+	"phone": "0871-65307866",
+	"work": "09:00－18:00",
+	"position": "102.703401,25.052535"
+}, {
+	"id": 411,
+	"region": "云南省-昆明市-五华区",
+	"brand": "360手机",
+	"name": "昆明永星通信设备有限公司",
+	"address": "云南省昆明市东风西路241号百汇商业广场二楼A区A9商铺",
+	"phone": "0871-65307866",
+	"work": "09:00－18:00",
+	"position": "102.703401,25.052535"
+}]
+```
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "更新成功",
+    'data': null
+}
+```
+
+## 9、更改服务网点信息:
+#### url:/web/adm/brand/updateBrandService/v1
+#### method:post
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| name | int | 服务网点ID |
+| name | string | 网点名称 |
+| brand | string | 品牌 |
+| address | string | 地址 |
+| pid | int | 省分ID |
+| zid | int | 城市ID |
+| did | int | 区域ID |
+| phone | string | 电话 |
+| position | string | 地图表示 |
+| work | string | 工作时间 |
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "更新成功",
+    'data': null
+}
+```
+
+
+
+## 10、删除服务网点
+#### url:/web/adm/brand/deleteBrandService/{id}/v1
+#### method:get
+#### params:
+
+| key | value | description |
+| :-: | :---: | :---------: |
+| id | int | 服务网点ID |
+
+
+#### return:
+```javascript
+{
+    "code": 0,
+    "msg": "SuccessMsg",
+    "userMsg": "删除成功",
+    'data': null
+}
+```
