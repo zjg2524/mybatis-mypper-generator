@@ -1,0 +1,18 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: dashboard-server1
+
+
+eureka:
+  client:
+    service-url:
+       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    instance-id: dashboard-server-9001
+    prefer-ip-address: true
+
+

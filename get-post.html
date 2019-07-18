@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>testAjax</title>
+</head>
+
+<body>
+<h1>index</h1>
+<hr/>
+<button id="testGet" onclick="fn1()">testGet</button>
+<br>
+<button id="testPost" onclick="fn2()">testPost</button>
+<br>
+<button id="test" onclick="fn3()">test</button>
+
+</body>
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript">
+  /*//验证jQuery引入是否发生错误，用弹出框检验
+  $(function(){
+      alert();
+  });*/
+
+  function fn1(){
+    $.get(
+      "http://localhost:10001/test/login/get",//url地址
+      {"name":"zhangsan","age":"24"},//请求参数
+      function(data){//执行成功后的回调函数，在此处将其写成匿名函数
+
+        alert(data.username);
+      },
+      "json"
+    );
+  }//若果用get提交方式传输中文数据，会出现乱码，可以进行先编码再解码的方法解决
+  //{"name":"张三","age":"24"},
+
+  function fn2(){
+    $.post(
+      "http://localhost:10001/test/login/post",
+      /*{"name":"zhangsan","age":"24"},*/
+      {"username": "huahua01", "password": "123456", "desc": "很花花"},
+      /*{"name":"zhangsan","age":"24"},*/
+      function(data){
+
+        alert(data.desc);
+      },
+
+      "json"
+
+    );
+  }
+
+  function fn3(){
+    $.ajax({
+      url:"http://localhost:10001/test/login/post",
+
+      type:"post",
+      contentType: "application/json",
+      data:'{"username": "huahua01", "password": "123456", "desc": "22222"}',
+      success:function(data){
+        alert(data.password);
+      },
+      error:function(){
+        alert("请求失败");
+      },
+      dataType:"json"
+
+    });
+
+  }
+</script>
+
+</html>
