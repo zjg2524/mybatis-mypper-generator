@@ -1,0 +1,36 @@
+创建topic
+bin/kafka-topics.sh --create --topic test1 --zookeeper 192.168.44.135:2181/pre1-kafka --config max.message.bytes=12800000 --config flush.messages=1 --partitions 5 --replication-factor 1
+
+删除topic
+kafka-topics.sh --zookeeper localhost:2181/kafka --topic test --delete
+
+查看topic消息
+bin/kafka-topics.sh --describe --zookeeper 192.168.44.135:2181/pre1-kafka  --topic test1
+
+增加topic的partition
+kafka-topics.sh --zookeeper localhost:2181 --alter --topic test --partitions 5
+
+消费消息
+1) 从头开始
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+2) 从尾部开始
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --offset latest
+3) 指定分区
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --offset latest --partition 1
+4) 取指定个数
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --offset latest --partition 1 --max-messages 1
+5) 新消费者（ver>=0.9）
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --new-consumer --from-beginning --consumer.config config/consumer.properties
+
+生产消息
+kafka-console-producer.sh --broker-list 192.168.44.135:9092 --topic test1 
+
+查看消费者组
+kafka-consumer-groups.sh --zookeeper 192.168.44.135:2181/pre1-kafka --list （老版本）
+kafka-consumer-groups.sh --new-consumer --bootstrap-server 192.168.44.135:9092 --list
+
+查看消费者组的详情
+kafka-consumer-groups.sh --new-consumer --bootstrap-server 192.168.44.135:9092  --group console-consumer-96381 --describe
+
+删除consumer group
+kafka-consumer-groups.sh --new-consumer --bootstrap-server 192.168.44.135:9092 --group console-consumer-96381 --delete
